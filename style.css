@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #004a9e;
+    --secondary-color: #f4f4f9;
+    --font-color: #333;
+    --border-color: #ddd;
+    --card-bg: #fff;
+    --status-0: #e0e0e0; /* 아직 안 들음 */
+    --status-1: #ffc107; /* 듣는 중 */
+    --status-2: #4caf50; /* 다 들음 */
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+.add-course-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#course-name-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#add-course-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+#add-course-btn:hover {
+    background-color: #003366;
+}
+
+#course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.course-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === NEW & UPDATED STYLES START === */
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+.course-title {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.delete-course-btn {
+    background-color: #e0e0e0;
+    color: #888;
+    border: none;
+    border-radius: 50%; /* 동그란 버튼 */
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px; /* 텍스트 세로 중앙 정렬 */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0; /* 버튼 크기 줄어들지 않게 */
+}
+
+.delete-course-btn:hover {
+    background-color: #c7c7c7;
+    color: #333;
+}
+
+/* === NEW & UPDATED STYLES END === */
+
+
+.progress-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.week-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+.week-item label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.status-select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.status-select.status-0 { background-color: var(--status-0); color: #333; }
+.status-select.status-1 { background-color: var(--status-1); color: #333; }
+.status-select.status-2 { background-color: var(--status-2); color: white; }
+
+/* === NEW STYLE === */
+.completion-date {
+    font-size: 10px;
+    color: #666;
+    margin-top: 4px;
+    height: 12px; /* 날짜가 없을 때도 공간 차지 */
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #888;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .progress-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.completion-date {
+    font-size: 10px;
+    color: #666;
+    margin-top: 4px;
+    height: 12px;
+    cursor: pointer; /* 클릭 가능함을 표시 */
+    width: 100%;
+    text-align: center;
+}
+
+.date-input {
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    border-radius: 3px;
+    font-size: 10px;
+    padding: 1px;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
