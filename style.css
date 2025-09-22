@@ -199,3 +199,179 @@ footer {
     margin-top: 4px;
     box-sizing: border-box;
 }
+
+#calendar-section {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+#month-year-title {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+#calendar-header button {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#calendar-header button:hover {
+    background-color: var(--secondary-color);
+}
+
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    padding: 8px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-day.is-today .date-number {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.day-name {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.date-number {
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.calendar-events {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    overflow-y: auto;
+    flex-grow: 1; /* 남은 공간 채우기 */
+}
+
+.calendar-event {
+    padding: 2px 4px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+        white-space: normal; /* nowrap -> normal 로 변경하여 자동 줄바꿈 허용 */
+    overflow-wrap: break-word; /* 단어가 길 경우 강제 줄바꿈 */
+    word-break: keep-all; /* 한글 단어는 가급적 유지하며 줄바꿈 */
+}
+
+.event-completed {
+    background-color: #e8f5e9; /* Green */
+    color: #2e7d32;
+    border-left: 3px solid #4caf50;
+}
+
+.event-in-progress {
+    background-color: #fff8e1; /* Yellow */
+    color: #6d5b07;
+    border-left: 3px solid #ffc107;
+}
+/* === 캘린더 스타일 END === */
+
+.completion-date {
+    font-size: 10px;
+    color: #666;
+    margin-top: 4px;
+    height: 12px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.date-input {
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    border-radius: 3px;
+    font-size: 10px;
+    padding: 1px;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    #calendar-section {
+        padding: 15px;
+    }
+
+    /* 그리드를 목록 형태로 변경 */
+    #calendar-grid {
+        display: block; 
+    }
+
+    /* '일'~'토' 요일 헤더 숨기기 */
+    .day-name {
+        display: none;
+    }
+
+    /* 각 날짜 항목을 리스트 아이템처럼 보이게 수정 */
+    .calendar-day {
+        display: flex; /* 날짜와 이벤트를 가로로 배치 */
+        align-items: flex-start; /* 위쪽 정렬 */
+        min-height: auto; /* 최소 높이 제거 */
+        padding: 12px 8px;
+        margin-bottom: 8px;
+        border: none;
+        border-bottom: 1px solid var(--secondary-color);
+        border-radius: 0;
+    }
+
+    /* 이벤트가 없는 날짜는 모바일에서 숨기기 */
+    .calendar-day.no-events {
+        display: none;
+    }
+
+    /* 날짜 숫자 스타일 조정 */
+    .date-number {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-right: 15px; /* 이벤트와의 간격 */
+    }
+
+    .calendar-day.is-today .date-number {
+        background-color: transparent; /* 배경색 제거 */
+        color: var(--primary-color); /* 파란색 텍스트로 강조 */
+    }
+    
+    .calendar-events {
+        flex-grow: 1; /* 남은 공간 모두 사용 */
+    }
+}

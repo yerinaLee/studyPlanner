@@ -14,7 +14,15 @@
             <h1>방송통신대학교 학습 진도율 관리</h1>
             <p>과목별 학습 현황을 한눈에 관리하세요.</p>
         </header>
-        
+
+        <section id="calendar-section">
+            <div id="calendar-header">
+                <button id="prev-month-btn">&lt;</button>
+                <h2 id="month-year-title"></h2>
+                <button id="next-month-btn">&gt;</button>
+            </div>
+            <div id="calendar-grid"></div>
+        </section>
         <main>
             <div class="add-course-form">
                 <input type="text" id="course-name-input" placeholder="새 과목명 입력 (예: 자료구조)">
